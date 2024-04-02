@@ -71,7 +71,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const portfolioItem0Video = await loadVideo(
       "./assets/videos/liberinVideo.mp4"
     );
-    portfolioItem0Video.muted = false;
+    const isIOS = navigator.appVersion.indexOf("Mac") != -1 ? true : false;
+
+    portfolioItem0Video.muted = isIOS;
     const portfolioItem0VideoTexture = new THREE.VideoTexture(
       portfolioItem0Video
     );
