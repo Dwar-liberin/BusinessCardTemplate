@@ -4,19 +4,118 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="./libs/mindar/mindar-image-three.prod.js"></script>
   <script src="./main.js" type="module"></script>
-  <style>
-    html,
-    body {
-      position: relative;
-      margin: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden
-    }
-  </style>
+     <style>
+        html,
+        body {
+            position: relative;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden
+        }
+
+        #scanning-overlay {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fff;
+
+        }
+
+        #scanning-overlay.hidden {
+            display: none;
+        }
+
+        .logo {
+            margin-bottom: 6rem;
+        }
+
+
+
+        @keyframes skeleton-loading {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+
+        .logo {
+            width: 20rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: skeleton-loading 2s ease-in-out infinite;
+        }
+
+
+        #loading-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Styles for the loader circle */
+        .loader {
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #8834FF;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script>
+
+        function showLoadingScreen() {
+            document.getElementById('loading-screen').style.display = 'flex';
+            setTimeout(() => {
+                window.hideLoadingScreen()
+            }, 3000)
+        }
+
+
+        function hideLoadingScreen() {
+            document.getElementById('loading-screen').style.display = 'none';
+        }
+
+    </script>
 </head>
 
 <body>
+  
+    <div id="scanning-overlay" class="hidden">
+        <img class="logo" src="https://raw.githubusercontent.com/Dwar-liberin/blob/main/logoDwar.png" alt="logo" />
+    </div>
+
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
 </body>
 
 </html>
