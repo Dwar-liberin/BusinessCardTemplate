@@ -1,11 +1,11 @@
-import { CSS3DObject } from "./libs/three.js-r132/examples/jsm/renderers/CSS3DRenderer.js";
-import { mockWithVideo, mockWithImage } from "./libs/camera-mock.js";
+import { CSS3DObject } from "https://cdn.jsdelivr.net/gh/Dwar-liberin/dwar-lib/libs/three.js-r132/examples/jsm/renderers/CSS3DRenderer.js";
+import { mockWithVideo, mockWithImage } from "https://cdn.jsdelivr.net/gh/Dwar-liberin/dwar-lib/libs/camera-mock.js";
 import {
   loadGLTF,
   loadTexture,
   loadTextures,
   loadVideo,
-} from "./libs/loader.js";
+} from "https://cdn.jsdelivr.net/gh/Dwar-liberin/dwar-lib/libs/loader.js";
 const THREE = window.MINDAR.IMAGE.THREE;
 
 document.addEventListener("DOMContentLoaded", () => {
